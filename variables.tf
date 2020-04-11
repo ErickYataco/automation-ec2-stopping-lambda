@@ -9,3 +9,12 @@ variable "aws_profile" {
 variable "timeZone" {
   default= "America/Lima"
 }
+
+variable "startHour" {
+  default = "7"
+}
+
+variable "stopHour" {
+  default = "12"
+}
+

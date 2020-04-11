@@ -16,11 +16,11 @@ exports.handler = async (event, context) => {
         for (region of regions.Regions){
             var ec2 = new AWS.EC2({region: region.RegionName})
             
-            if (hour == '12'){
+            if (hour == process.env.START_HOUR){
                 stateInstance = 'running'
             }
 
-            if (hour == '7'){
+            if (hour == STOP_HOUR){
                 stateInstance = 'stopped'
             }
 
@@ -42,11 +42,11 @@ exports.handler = async (event, context) => {
                 }
                 console.log('ids ',ids)  
                 
-                if ( hour == '7'){
+                if ( hour == process.env.START_HOUR){
                     result = await ec2.startInstances({InstanceIds: ids}).promise()
-                    console.log('stoped ',result)  
+                    console.log('Start ',result)  
                 }
-                if (hour == '12'){
+                if (hour == process.env.STOP_HOUR){
                     result = await ec2.stopInstances({InstanceIds: ids}).promise()
                     console.log('stoped ',result)  
                 }
