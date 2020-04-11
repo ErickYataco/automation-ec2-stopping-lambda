@@ -20,7 +20,7 @@ exports.handler = async (event, context) => {
                 stateInstance = 'running'
             }
 
-            if (hour == STOP_HOUR){
+            if (hour == process.env.STOP_HOUR){
                 stateInstance = 'stopped'
             }
 
