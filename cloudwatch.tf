@@ -1,7 +1,7 @@
 resource "aws_cloudwatch_event_rule" "StopEC2Instances" {
   name        = "StopEC2Instances"
   description = "stop instances midnight"
-  schedule_expression = "rate(5 minutes)"
+  schedule_expression = "cron(0 ${var.stopHour} ? * MON-FRI *)"
  
 }
 
@@ -19,8 +19,8 @@ resource "aws_cloudwatch_event_target" "StopEC2InstancesEventTarget" {
 
 resource "aws_cloudwatch_event_rule" "StartEC2Instances" {
   name        = "StartEC2Instances"
-  description = "Start instances midnight"
-  schedule_expression = "rate(15 minutes)"
+  description = "Start instances at begining of day"
+  schedule_expression = "cron(0 ${var.startHour} ? * MON-FRI *)"
  
 }
 

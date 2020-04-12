@@ -88,7 +88,7 @@ resource "aws_lambda_function" "LambadaStopStartEC2Instances" {
 
   environment {
     variables = {
-      TIME_ZONE  = "${var.timeZone}"
+      //TIME_ZONE  = "${var.timeZone}"
       START_HOUR = "${var.startHour}"  
       STOP_HOUR  = "${var.stopHour}" 
     }

@@ -11,10 +11,14 @@ variable "timeZone" {
 }
 
 variable "startHour" {
-  default = "7"
+  description = "make the coverntion to UTC hour"
+  default = "13"
+  # in lima would be 8
 }
 
 variable "stopHour" {
-  default = "12"
+  description = "make the coverntion to UTC hour"
+  default = "4"
+  # in lima would be 23 
 }
 
